@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
-	before_action :find_applications, only: [:show, :edit, :update, :destroy]
+	before_action :find_application, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!
 
 	def index
 	end
@@ -9,7 +10,7 @@ class ApplicationsController < ApplicationController
 	end
 
 	def create
-		@application = current_user.applications.build(post_params)
+		@application = current_user.applications.build(application_params)
 
 		if @application.save
 			redirect_to @application
@@ -26,7 +27,7 @@ class ApplicationsController < ApplicationController
 
 	def update
 		if @application.update(application_params)
-			redirect_to @post
+			redirect_to @application
 		else
 			render 'edit'
 		end
@@ -40,12 +41,12 @@ class ApplicationsController < ApplicationController
 
 	private
 
-	def find_post
+	def find_application
 		@application = Application.find(params[:id])
 	end
 
 	def application_params
-		params.require(:application).permit(:title, :body, :image)
+		params.require(:application).permit(:name, :description)
 	end
 
 	def after_sign_out_path_for(resource_or_scope)

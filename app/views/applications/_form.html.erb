@@ -2,6 +2,8 @@
 	<div class="form_group">
 		<label for="title"><%= f.label :title %><br></label>
 		<%= f.text_field :name, placeholder: "Name of Your Friend Test", class: "form-control" %><br>
+		<label for="description"><%= f.label :description %><br></label>
+		<%= f.text_field :description, placeholder: "Write a witty tagline for your test.", class: "form-control" %><br>
 	</div>
 	<div class="form-actions">
 		<%= f.submit class: "btn btn-default" %>
