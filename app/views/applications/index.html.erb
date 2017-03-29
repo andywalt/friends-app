@@ -1,8 +1,18 @@
 <h1>This is a test to see if you really know your "friend".</h1>
 <h5>We're tired of people saying they are friends but they really know nothing about each other. We're bringing some integrity back to "friends".</h5>
-<h3>Pass the test and you get accepted.</h3>
-<h3>Fail the test and you get nothing.</h3>
+<h3>Pass the test and you get accepted. Fail the test and you get nothing.</h3>
 
-<h5>Past</h5>
-<h5>Present</h5>
-<h5>Future</h5>
+<% if user_signed_in? %>
+	<%= link_to "New Friend Test", new_application_path %>
+<% end %>
+
+<br>
+
+<br>
+
+<div class="applications_index">
+	<% @applications.each do |application| %>
+		<%= link_to application.name, application %>
+		<%= link_to application.description, application %>
+	<% end %>
+</div>

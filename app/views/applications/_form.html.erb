@@ -1,9 +1,18 @@
 <%= form_for @application, html: { multipart: true } do |f| %>
-	<div class="form_group">
+	<div class="field">
 		<label for="title"><%= f.label :title %><br></label>
 		<%= f.text_field :name, placeholder: "Name of Your Friend Test", class: "form-control" %><br>
 		<label for="description"><%= f.label :description %><br></label>
 		<%= f.text_field :description, placeholder: "Write a witty tagline for your test.", class: "form-control" %><br>
+	</div>
+	<h3>Questions</h3>
+	<div id="questions">
+		<%= f.fields_for :questions do |question| %>
+			<%= render 'questions_fields', f: question %>
+		<% end %>
+		<div class="links">
+			<%= link_to_add_association 'Add Question', f, :questions %>
+		</div>
 	</div>
 	<div class="form-actions">
 		<%= f.submit class: "btn btn-default" %>

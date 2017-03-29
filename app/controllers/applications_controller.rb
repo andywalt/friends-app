@@ -3,14 +3,16 @@ class ApplicationsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
+		@applications = Application.all.order("created_at DESC").limit(3)
 	end
 
-	def new
-		@application = current_user.applications.build
+	def new	
+	  @application = Application.new
 	end
 
 	def create
-		@application = current_user.applications.build(application_params)
+		binding.pry
+		@application = Application.new(application_params)
 
 		if @application.save
 			redirect_to @application
@@ -46,7 +48,7 @@ class ApplicationsController < ApplicationController
 	end
 
 	def application_params
-		params.require(:application).permit(:name, :description)
+		params.require(:application).permit(:name, :description, questions_attributes: [:id, :name, :_destroy])
 	end
 
 	def after_sign_out_path_for(resource_or_scope)
