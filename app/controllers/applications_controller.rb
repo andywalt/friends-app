@@ -6,12 +6,12 @@ class ApplicationsController < ApplicationController
 		@applications = Application.all.order("created_at DESC").limit(3)
 	end
 
-	def new	
+	def new
 	  @application = Application.new
+		@application.questions.build
 	end
 
 	def create
-		binding.pry
 		@application = Application.new(application_params)
 
 		if @application.save
@@ -54,4 +54,29 @@ class ApplicationsController < ApplicationController
 	def after_sign_out_path_for(resource_or_scope)
 	redirect_to root_path
 	end
+=begin
+<div class="field">
+	<%= f.label :title %><br>
+	<%= f.text_field :name, placeholder: "Name of Your Friend Test", class: "form-control" %><br>
+	<%= f.label :description %><br>
+	<%= f.text_field :description, placeholder: "Write a witty tagline for your test.", class: "form-control" %><br>
+</div>
+<h3>Questions</h3>
+<div id="questions">
+	<ul>
+		<%= form_for @question do |f| %>
+			<div class="field">
+				<%= f.label :question %><br />
+				<%= f.text_field :name, placeholder: "Q 4 U" %>
+			</div>
+		<% end %>
+	</ul>
+</div>
+<div class="form-actions">
+	<%= f.submit class: "btn btn-default" %>
+</div>
+<% end %>
+<% end %>
+
+=end
 end

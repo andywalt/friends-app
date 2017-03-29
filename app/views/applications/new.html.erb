@@ -7,17 +7,15 @@
 			<%= f.label :description %><br>
 			<%= f.text_field :description, placeholder: "Write a witty tagline for your test.", class: "form-control" %><br>
 		</div>
-		<h3>Questions</h3>
-		<div id="questions">
-			<ul>
-				<%= f.fields_for :questions do |question| %>
-				  <li>
-					<%= question.label :question %>
-					<%= question.text_field :question %>
-				  </li>
-				<% end %>
-			</ul>
-		</div>
+		Questions:
+		<ul>
+			<%= f.fields_for :questions do |question_form| %>
+				<li>
+					<%= question_form.label :question %>
+					<%= question_form.text_field :question %>
+				</li>
+			<% end %>
+		</ul>
 		<div class="form-actions">
 			<%= f.submit class: "btn btn-default" %>
 		</div>
