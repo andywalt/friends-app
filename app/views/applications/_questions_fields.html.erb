@@ -1,12 +1,4 @@
 <div class="nested-fields">
-  <div class="field">
-    <%= f.label :description %>
-    <br/>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.check_box :done %>
-    <%= f.label :done %>
-  </div>
-  <%= link_to_remove_association "remove task", f %>
+  <%= f.text_field :question %>
+  <%= link_to_remove_association "Remove Question", f %>
 </div>

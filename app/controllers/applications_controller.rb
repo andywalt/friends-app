@@ -7,12 +7,12 @@ class ApplicationsController < ApplicationController
 	end
 
 	def new	
-	  @application = Application.new
+	  @application = current_user.applications.build
+	  @application.questions.build
 	end
 
 	def create
-		binding.pry
-		@application = Application.new(application_params)
+		@application = current_user.applications.build(application_params)
 
 		if @application.save
 			redirect_to @application
