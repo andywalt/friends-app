@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'applications#index'
 
-  resources :applications
-
+  resources :applications do
+    resources :questions
+  end
 end
