@@ -2,9 +2,9 @@
 <h4><%= @application.description %></h4>
 <h3>Questions</h3>
 <ul>
-	<%= @application.questions.each do |question| %>
+	<%= @application.tests.each do |test| %>
 		<li>
-			<%= @question.question %>
+			<%= test.question %>
 		</li>
 	<% end %>
 </ul>

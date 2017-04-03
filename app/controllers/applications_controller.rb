@@ -9,7 +9,7 @@ class ApplicationsController < ApplicationController
 <<<<<<< HEAD
 	def new	
 	  @application = current_user.applications.build
-	  @application.questions.build
+	  @application.tests.build
 	end
 
 	def create
@@ -58,7 +58,7 @@ class ApplicationsController < ApplicationController
 	end
 
 	def application_params
-		params.require(:application).permit(:name, :description, questions_attributes: [:id, :name, :_destroy])
+		params.require(:application).permit(:name, :description, tests_attributes: [:id, :question, :_destroy])
 	end
 
 	def after_sign_out_path_for(resource_or_scope)

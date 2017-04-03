@@ -19,12 +19,12 @@
 		</div>
 <<<<<<< HEAD
 		<h3>Questions</h3>
-			<%= f.fields_for :questions do |question| %>
+			<%= f.fields_for :tests do |test| %>
 				<div id="questions">
 					<div class="field">
-				  	<%= render 'questions_fields', f: question %>
+				  	<%= render 'questions_fields', f: test %>
 			  	 <div class="links">
-				  	<%= link_to_add_association 'Add Question', f, :questions, partial: 'questions_fields' %>
+				  	<%= link_to_add_association 'Add Question', f, :tests, partial: 'questions_fields' %>
 				   </div>
 				  </div>
 				</div>
