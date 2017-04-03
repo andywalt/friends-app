@@ -17,8 +17,8 @@
 			<%= f.label :description %><br>
 			<%= f.text_field :description, placeholder: "Write a witty tagline for your test.", class: "form-control" %><br>
 		</div>
-<<<<<<< HEAD
 		<h3>Questions</h3>
+			<p>Add about 10-20 questions that only a friend would know.</p>
 			<%= f.fields_for :tests do |test| %>
 				<div id="questions">
 					<div class="field">
@@ -30,17 +30,6 @@
 				</div>
 			<% end %>
 		<br>
-=======
-		Questions:
-		<ul>
-			<%= f.fields_for :questions do |question_form| %>
-				<li>
-					<%= question_form.label :question %>
-					<%= question_form.text_field :question %>
-				</li>
-			<% end %>
-		</ul>
->>>>>>> 4d10195e1875fbbcfb8f873c9fe4585a654706e6
 		<div class="form-actions">
 			<%= f.button :submit %>
 		</div>

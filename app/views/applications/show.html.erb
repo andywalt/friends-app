@@ -1,10 +1,12 @@
 <h1><%= @application.name %></h1>
-<h4><%= @application.description %></h4>
+<h4><i><%= @application.description %></i></h4>
 <h3>Questions</h3>
 <ul>
-	<%= @application.tests.each do |test| %>
+	<% @application.tests.each do |test| %>
 		<li>
-			<%= test.question %>
+			<%= test.question + "?" %>
 		</li>
 	<% end %>
 </ul>
+
+<h6><%= link_to "Back", root_path %></h6>

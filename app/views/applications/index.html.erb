@@ -12,7 +12,9 @@
 
 <div class="applications_index">
 	<% @applications.each do |application| %>
-		<%= link_to application.name, application %>
-		<%= link_to application.description, application %>
+		<ul>
+			<li><%= link_to application.name, application %>
+			<%= link_to application.description, application %></li>
+	  </ul>
 	<% end %>
 </div>

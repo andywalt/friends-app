@@ -1,12 +1,11 @@
 class ApplicationsController < ApplicationController
 	before_action :find_application, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		@applications = Application.all.order("created_at DESC").limit(3)
 	end
 
-<<<<<<< HEAD
 	def new	
 	  @application = current_user.applications.build
 	  @application.tests.build
@@ -14,15 +13,6 @@ class ApplicationsController < ApplicationController
 
 	def create
 		@application = current_user.applications.build(application_params)
-=======
-	def new
-	  @application = Application.new
-		@application.questions.build
-	end
-
-	def create
-		@application = Application.new(application_params)
->>>>>>> 4d10195e1875fbbcfb8f873c9fe4585a654706e6
 
 		if @application.save
 			redirect_to @application
@@ -64,29 +54,4 @@ class ApplicationsController < ApplicationController
 	def after_sign_out_path_for(resource_or_scope)
 	redirect_to root_path
 	end
-=begin
-<div class="field">
-	<%= f.label :title %><br>
-	<%= f.text_field :name, placeholder: "Name of Your Friend Test", class: "form-control" %><br>
-	<%= f.label :description %><br>
-	<%= f.text_field :description, placeholder: "Write a witty tagline for your test.", class: "form-control" %><br>
-</div>
-<h3>Questions</h3>
-<div id="questions">
-	<ul>
-		<%= form_for @question do |f| %>
-			<div class="field">
-				<%= f.label :question %><br />
-				<%= f.text_field :name, placeholder: "Q 4 U" %>
-			</div>
-		<% end %>
-	</ul>
-</div>
-<div class="form-actions">
-	<%= f.submit class: "btn btn-default" %>
-</div>
-<% end %>
-<% end %>
-
-=end
 end
