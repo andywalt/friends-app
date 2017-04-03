@@ -2,19 +2,15 @@
 <h5>We're tired of people saying they are friends but they really know nothing about each other. We're bringing some integrity back to "friends".</h5>
 <h3>Pass the test and you get accepted. Fail the test and you get nothing.</h3>
 
+<h2>My Tests</h2>
 <% if user_signed_in? %>
 	<%= link_to "New Friend Test", new_application_path %>
 <% end %>
-
-<br>
-
-<br>
-
 <div class="applications_index">
 	<% @applications.each do |application| %>
 		<ul>
-			<li><%= link_to application.name, application %>
-			<%= link_to application.description, application %></li>
+			<li><b><%= link_to application.name, application %></b><br>
+			<i><%= link_to application.description, application %></i></li>
 	  </ul>
 	<% end %>
 </div>
