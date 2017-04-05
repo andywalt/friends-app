@@ -1,0 +1,6 @@
+<%= form_for([@application, @application.answers.build]) do |f| %>
+	<div class="field">
+		<%= f.text_field :reply %>
+		<%= f.submit class: "btn btn-default" %>
+	</div>
+<% end %>

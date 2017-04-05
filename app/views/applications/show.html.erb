@@ -9,4 +9,9 @@
 	<% end %>
 </ul>
 
+<h2><%= @application.answers.count %></h2>
+<%= render @application.answers %>
+
+<%= render 'answers/form' %>
+
 <h6><%= link_to "Back", root_path %></h6>
